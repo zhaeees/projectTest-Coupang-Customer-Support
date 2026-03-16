@@ -9,7 +9,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
     sans-serif;
-  background-color: #0054d2;
+  background: linear-gradient(145deg, #f6f9fd, #99bff8) ;
   color: #222;
 }
 
@@ -18,7 +18,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
-  background-color: #b80019; /* v1 헤더 색상 (v2에서 이 색만 바꿔도 됨) */
+  background-color: #fc8998; 
   color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
