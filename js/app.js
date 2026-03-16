@@ -40,6 +40,30 @@ const dummyTickets = [
     orderNo: "20260311-000321",
     createdAt: "2026-03-12 16:20",
   },
+  {
+    id: 4,
+    status: "대기",
+    type: "환불 요청",
+    customer: "박지은",
+    orderNo: "20260313-000812",
+    createdAt: "2026-03-13 10:05",
+  },
+  {
+    id: 5,
+    status: "처리 중",
+    type: "배송 주소 변경",
+    customer: "최준호",
+    orderNo: "20260312-000721",
+    createdAt: "2026-03-13 10:40",
+  },
+  {
+    id: 6,
+    status: "완료",
+    type: "상품 파손",
+    customer: "정수빈",
+    orderNo: "20260310-000211",
+    createdAt: "2026-03-12 14:15",
+  },
 ];
 
 const ticketTableBody = document.getElementById("ticketTableBody");
