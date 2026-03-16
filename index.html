@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>쿠팡 고객상담관리센터</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="cs-header">
+      <div class="cs-header-left">
+        <div class="cs-logo">Coupang CS</div>
+        <div class="cs-title">고객상담관리센터</div>
+      </div>
+      <div class="cs-header-right">
+        <span class="cs-agent-name">상담원: 김지애</span>
+        <button class="cs-btn cs-btn-outline" type="button">로그아웃</button>
+      </div>
+    </header>
+
+    <nav class="cs-nav">
+      <button class="cs-tab-btn active" data-tab="dashboard">대시보드</button>
+      <button class="cs-tab-btn" data-tab="tickets">문의 목록</button>
+      <button class="cs-tab-btn" data-tab="detail">문의 상세</button>
+      <button class="cs-tab-btn" data-tab="faq">FAQ</button>
+    </nav>
+
+    <main class="cs-main">
+      <!-- 대시보드 -->
+      <section id="tab-dashboard" class="cs-tab active">
+        <h1>오늘의 상담 현황</h1>
+        <div class="cs-cards">
+          <div class="cs-card">
+            <div class="cs-card-label">오늘 접수</div>
+            <div class="cs-card-value">24건</div>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-label">처리 대기</div>
+            <div class="cs-card-value cs-badge-wait">8건</div>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-label">처리 중</div>
+            <div class="cs-card-value cs-badge-progress">5건</div>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-label">처리 완료</div>
+            <div class="cs-card-value cs-badge-done">11건</div>
+          </div>
+        </div>
+        <div class="cs-notice">
+          [공지] 시스템 점검 예정: 오늘 23:00 ~ 23:30 동안 잠시 접속이 제한될 수 있습니다.
+        </div>
+      </section>
+
+      <!-- 문의 목록 -->
+      <section id="tab-tickets" class="cs-tab">
+        <h1>고객 문의 목록</h1>
+        <div class="cs-search-bar">
+          <input
+            type="text"
+            id="searchKeyword"
+            placeholder="주문번호 / 고객명 / 연락처 검색"
+          />
+          <button class="cs-btn" id="searchBtn" type="button">검색</button>
+        </div>
+
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>상태</th>
+              <th>문의 유형</th>
+              <th>고객명</th>
+              <th>주문번호</th>
+              <th>등록일시</th>
+            </tr>
+          </thead>
+          <tbody id="ticketTableBody">
+            <!-- JS에서 더미 데이터 렌더링 -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 문의 상세 -->
+      <section id="tab-detail" class="cs-tab">
+        <h1>문의 상세 / 처리</h1>
+        <div class="cs-detail-layout">
+          <div class="cs-detail-left">
+            <div class="cs-detail-block">
+              <h2>고객 정보</h2>
+              <p><strong>고객명</strong> : 홍길동</p>
+              <p><strong>연락처</strong> : 010-1234-5678</p>
+              <p><strong>이메일</strong> : hong@test.com</p>
+            </div>
+            <div class="cs-detail-block">
+              <h2>주문 / 배송 정보</h2>
+              <p><strong>주문번호</strong> : 20260313-000001</p>
+              <p><strong>상품명</strong> : 무선 청소기</p>
+              <p><strong>배송상태</strong> : 배송 지연</p>
+            </div>
+          </div>
+          <div class="cs-detail-right">
+            <div class="cs-detail-block">
+              <h2>고객 문의 내용</h2>
+              <p>
+                배송이 계속 지연되고 있습니다. 현재 위치와 정확한 배송 예정일을 알고
+                싶습니다.
+              </p>
+            </div>
+            <div class="cs-detail-block">
+              <h2>상담원 답변</h2>
+              <textarea
+                id="answerText"
+                rows="6"
+                placeholder="고객에게 안내할 답변 내용을 입력하세요."
+              ></textarea>
+              <div class="cs-detail-actions">
+                <select id="statusSelect">
+                  <option value="WAIT">처리 대기</option>
+                  <option value="PROGRESS">처리 중</option>
+                  <option value="DONE">처리 완료</option>
+                </select>
+                <button class="cs-btn" id="saveBtn" type="button">
+                  처리 내용 저장
+                </button>
+              </div>
+              <div id="saveMessage" class="cs-save-message" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="tab-faq" class="cs-tab">
+        <h1>FAQ (자주 묻는 질문)</h1>
+        <div class="cs-faq-list">
+          <details open>
+            <summary>Q. 로그인 비밀번호를 잊어버렸습니다.</summary>
+            <p>
+              A. 사내 계정 포털에서 비밀번호 초기화를 요청하거나, 관리자에게 초기화를
+              요청해 주세요.
+            </p>
+          </details>
+          <details>
+            <summary>Q. 결제 오류 문의가 들어왔을 때 어떻게 응대하나요?</summary>
+            <p>
+              A. 주문번호와 고객 정보를 확인한 뒤, 결제 승인 여부를 시스템에서 다시
+              확인하고, 사내 결제 정책에 따라 취소/재결제를 안내합니다.
+            </p>
+          </details>
+          <details>
+            <summary>Q. 배송 지연 문의가 많은 경우 어떻게 해야 하나요?</summary>
+            <p>
+              A. 배송사 공지 및 사내 공지사항을 먼저 확인하고, 공통 안내 문구를
+              활용하여 동일한 기준으로 답변해 주세요.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cs-footer">
+      © 2026 Coupang Customer Support Center · Training Version
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+  </html>
+
